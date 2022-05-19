@@ -9,6 +9,7 @@ string HourlyEmployeeUIConverter::convert(shared_ptr<void> type) {
 	ss << employee->getName() << "\n\t";
 	ss << "HourlyPayment=" << employee->getPricePerHour() << "$; ";
 	ss << "TotalHours=" << employee->getNumOfHour();
+	ss << "\nTotalPayment: " << employee->getPayment() << "$; ";
 
 	string result = ss.str();
 	return result;

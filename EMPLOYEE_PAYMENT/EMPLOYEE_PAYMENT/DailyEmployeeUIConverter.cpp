@@ -9,6 +9,7 @@ string DailyEmployeeUIConverter::convert(shared_ptr<void> type) {
 	ss << employee->getName() << "\n\t";
 	ss << "DailyPayment=" << employee->getPricePerDay() << "$; ";
 	ss << "TotalDays=" << employee->getNumOfDay();
+	ss << "\nTotalPayment: " << employee->getPayment() << "$; ";
 
 	string result = ss.str();
 	return result;

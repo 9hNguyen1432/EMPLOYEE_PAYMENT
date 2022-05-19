@@ -20,28 +20,13 @@ private:
 		_prototypes.push_back(make_shared<Manager>());
 	}*/
 	map<string,shared_ptr<Employee>> _prototypes;
-	EmployeeFactory() {
-		_prototypes.insert({ (new DailyEmployee())->className(),make_shared<DailyEmployee>() });
-		_prototypes.insert({ (new HourlyEmployee())->className(),make_shared<HourlyEmployee>() });
-		_prototypes.insert({ (new ProductEmployee())->className(),make_shared<ProductEmployee>() });
-		_prototypes.insert({ (new Manager())->className(),make_shared<Manager>() });
-	}
+	EmployeeFactory();
 public:
-	shared_ptr<Employee> getPrototype(string className) {
-		auto result = _prototypes[className];
-		return result;
-	}
+	shared_ptr<Employee> getPrototype(string className);
 public:
-	static shared_ptr<EmployeeFactory> instance() {
-		if (_instance == NULL) {
-			_instance = shared_ptr<EmployeeFactory>(new EmployeeFactory());
-		}
-		return _instance;
-	}
+	static shared_ptr<EmployeeFactory> instance();
 
-	int supportedTypesCount() {
-		return _prototypes.size();
-	}
+	int supportedTypesCount();
 
 	shared_ptr<Employee> create(tuple<string, string, int*> data);
 };

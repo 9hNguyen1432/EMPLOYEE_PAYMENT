@@ -1,6 +1,0 @@
-﻿  DailyEmployeeUIConverter.cpp
-  main.cpp
-D:\ĐẠI HỌC\Năm 2 - HK2\OOP\Theory\Đồ án 2\EMPLOYEE_PAYMENT\EMPLOYEE_PAYMENT\EmployeeFactory.h(43,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-D:\ĐẠI HỌC\Năm 2 - HK2\OOP\Theory\Đồ án 2\EMPLOYEE_PAYMENT\EMPLOYEE_PAYMENT\main.cpp(20,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
-  Generating Code...
-  EMPLOYEE_PAYMENT.vcxproj -> D:\ĐẠI HỌC\Năm 2 - HK2\OOP\Theory\Đồ án 2\EMPLOYEE_PAYMENT\x64\Debug\EMPLOYEE_PAYMENT.exe

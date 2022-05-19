@@ -11,4 +11,5 @@ class Employee {
 public:
 	virtual shared_ptr<Employee> create(tuple<string,int*>) = 0;
 	virtual string className() = 0;
+	virtual int getPayment() = 0;
 };

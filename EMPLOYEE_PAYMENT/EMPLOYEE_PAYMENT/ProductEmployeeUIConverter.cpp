@@ -9,6 +9,7 @@ string ProductEmployeeUIConverter::convert(shared_ptr<void> type) {
 	ss << employee->getName() << "\n\t";
 	ss << "PaymentPerProduct=" << employee->getPricePerProduct() << "$; ";
 	ss << "TotalProducts=" << employee->getNumOfProduct();
+	ss << "\nTotalPayment: " << employee->getPayment() << "$; ";
 
 	string result = ss.str();
 	return result;
