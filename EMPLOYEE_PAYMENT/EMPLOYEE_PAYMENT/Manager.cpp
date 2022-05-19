@@ -1,7 +1,8 @@
 #include "Manager.h"
 
-Manager::Manager(int fixPayment,  int numOfStaff, int price)
+Manager::Manager(string name, int fixPayment,  int numOfStaff, int price)
 {
+	_name = name;
 	_pricePerStaff = price;
 	_numOfStaff = numOfStaff;
 	_fixedPayment = fixPayment;
@@ -14,10 +15,10 @@ int Manager::getPayment()
 	return result;
 }
 
-shared_ptr<Employee> Manager::generate(void* argm)
+shared_ptr<Employee> Manager::create(tuple<string, int*> data)
 {
-	int* temp = (int*)argm;
-	shared_ptr<Employee> result = make_shared<Manager>(temp[0], temp[1], temp [0]);
+	int* temp = get<1>(data);
+	shared_ptr<Employee> result = make_shared<Manager>(get<0>(data), temp[0], temp[1], temp [0]);
 	return result;
 }
 

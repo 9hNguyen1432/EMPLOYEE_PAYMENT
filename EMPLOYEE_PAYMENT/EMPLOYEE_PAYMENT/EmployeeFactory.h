@@ -7,15 +7,29 @@
 #include "Manager.h"
 #include <vector>
 #include <map>
+#include<tuple>
+
 class EmployeeFactory {
 private:
 	static shared_ptr<EmployeeFactory> _instance;
-	vector<shared_ptr<Employee>> _prototypes;
+	/*vector<shared_ptr<Employee>> _prototypes;
 	EmployeeFactory() {
 		_prototypes.push_back(make_shared<DailyEmployee>());
 		_prototypes.push_back(make_shared<HourlyEmployee>());
 		_prototypes.push_back(make_shared<ProductEmployee>());
 		_prototypes.push_back(make_shared<Manager>());
+	}*/
+	map<string,shared_ptr<Employee>> _prototypes;
+	EmployeeFactory() {
+		_prototypes.insert({ (new DailyEmployee())->className(),make_shared<DailyEmployee>() });
+		_prototypes.insert({ (new HourlyEmployee())->className(),make_shared<HourlyEmployee>() });
+		_prototypes.insert({ (new ProductEmployee())->className(),make_shared<ProductEmployee>() });
+		_prototypes.insert({ (new Manager())->className(),make_shared<Manager>() });
+	}
+public:
+	shared_ptr<Employee> getPrototype(string className) {
+		auto result = _prototypes[className];
+		return result;
 	}
 public:
 	static shared_ptr<EmployeeFactory> instance() {
@@ -29,14 +43,5 @@ public:
 		return _prototypes.size();
 	}
 
-	shared_ptr<Employee> create(tuple<string, int*> data) {
-		shared_ptr<Employee> result;
-
-		for (int j = 0; j < _prototypes.size(); j++) {
-			if (get<0>(data) == _prototypes[j]->className()) {
-				result = _prototypes[j]->generate(get<1>(data));
-				return result;
-			}
-		}
-	};
+	shared_ptr<Employee> create(tuple<string, string, int*> data);
 };

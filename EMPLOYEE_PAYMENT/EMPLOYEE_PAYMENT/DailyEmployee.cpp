@@ -1,7 +1,8 @@
 #include "DailyEmployee.h"
 
-DailyEmployee::DailyEmployee(int pricePerDay, int numOfDay)
+DailyEmployee::DailyEmployee(string name, int pricePerDay, int numOfDay)
 {
+	_name = name;
 	_pricePerDay = pricePerDay;
 	_numOfDay = numOfDay;
 }
@@ -13,10 +14,10 @@ int DailyEmployee::getPayment()
 	return result;
 }
 
-shared_ptr<Employee> DailyEmployee::generate(void* argm)
+shared_ptr<Employee> DailyEmployee::create(tuple<string, int*> data)
 {
-	int* temp = (int*) argm;
-	shared_ptr<Employee> result = make_shared<DailyEmployee>(temp[0], temp[1]);
+	int* temp = get<1>(data);
+	shared_ptr<Employee> result = make_shared<DailyEmployee>(get<0>(data),temp[0], temp[1]);
 	return result;
 }
 

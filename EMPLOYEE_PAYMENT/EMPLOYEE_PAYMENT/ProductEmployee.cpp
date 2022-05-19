@@ -1,7 +1,8 @@
 #include "ProductEmployee.h"
 
-ProductEmployee::ProductEmployee(int pricePerProduct, int numOfProduct)
+ProductEmployee::ProductEmployee(string name, int pricePerProduct, int numOfProduct)
 {
+	_name = name;
 	_pricePerProduct = pricePerProduct;
 	_numOfProduct = numOfProduct;
 }
@@ -13,10 +14,10 @@ int ProductEmployee::getPayment()
 	return result;
 }
 
-shared_ptr<Employee> ProductEmployee::generate(void* argm)
+shared_ptr<Employee> ProductEmployee::create(tuple<string, int*> data)
 {
-	int* temp = (int*)argm;
-	shared_ptr<Employee> result = make_shared<ProductEmployee>(temp[0], temp[1]);
+	int* temp = get<1>(data);
+	shared_ptr<Employee> result = make_shared<ProductEmployee>(get<0>(data), temp[0], temp[1]);
 	return result;
 }
 
