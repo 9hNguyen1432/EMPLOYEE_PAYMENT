@@ -140,18 +140,35 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DailyEmployee.h" />
+    <ClInclude Include="DailyEmployeeUIConverter.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="EmployeeFactory.h" />
     <ClInclude Include="HourlyEmployee.h" />
+    <ClInclude Include="HourlyEmployeeUIConverter.h" />
+    <ClInclude Include="IConverter.h" />
+    <ClInclude Include="Information.h" />
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="ManagerUIConverter.h" />
     <ClInclude Include="ProductEmployee.h" />
+    <ClInclude Include="ProductEmployeeUIConverter.h" />
+    <ClInclude Include="Ulti.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DailyEmployee.cpp" />
+    <ClCompile Include="DailyEmployeeUIConverter.cpp" />
+    <ClCompile Include="EmployeeFactory.cpp" />
     <ClCompile Include="HourlyEmployee.cpp" />
+    <ClCompile Include="HourlyEmployeeUIConverter.cpp" />
+    <ClCompile Include="Information.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="ManagerUIConverter.cpp" />
     <ClCompile Include="ProductEmployee.cpp" />
+    <ClCompile Include="ProductEmployeeUIConverter.cpp" />
+    <ClCompile Include="Ulti.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="November2021.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
